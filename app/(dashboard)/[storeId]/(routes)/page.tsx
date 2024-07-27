@@ -1,11 +1,17 @@
-import React from 'react';
+import prisma from "@/prisma/client";
+import React from "react";
 
-const DashboardPage = () => {
-  return (
-    <div>
-      this is a Dashboard
-    </div>
-  );
+interface DashboardProps {
+  params: { storeId: string };
 }
+const DashboardPage = async ({ params: { storeId } }: DashboardProps) => {
+  const res = await prisma.store.findUnique({
+    where: {
+      id: storeId,
+    },
+  });
+
+  return <div>current active store {res?.name}</div>;
+};
 
 export default DashboardPage;

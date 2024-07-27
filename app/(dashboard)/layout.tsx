@@ -1,3 +1,4 @@
+import NavBarForAdmin from "@/components/NavBarForAdmin";
 import prisma from "@/prisma/client";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -18,7 +19,7 @@ export default async function DashboardLayout({
   if (!store) redirect("/");
   return (
     <>
-      <div>this will be a navbat</div>
+      <NavBarForAdmin></NavBarForAdmin>
       {children}
     </>
   );
