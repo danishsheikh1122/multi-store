@@ -4,10 +4,16 @@
 - created next app and addeed shadcn lib
 - by default (root) folder can contians landing page
 
-## Auth with clerk 
+## Auth with clerk
+
 - clerk auth initiated
-- signup and signin page is created 
+- signup and signin page is created
 
 ## created a store zustand is used
-- we need to create a dialog and to manage its state globally we used zustand 
-- first we create a dialog (basically a cmp) then we create zustand store (basically a hook)to manage its state onOpen and onClose and after that we created a modal store where we finally render the dialog with use of zustand state and the we have created providers>modal-provider.tsx to make the app uncrashable when csr and ssr will occur. 
+
+- we need to create a dialog and to manage its state globally we used zustand
+- first we create a dialog (basically a cmp) then we create zustand store (basically a hook)to manage its state onOpen and onClose and after that we created a modal store where we finally render the dialog with use of zustand state and the we have created providers>modal-provider.tsx to make the app uncrashable when csr and ssr will occur.
+
+## created store changer component
+
+- we've used shadcn comboboox to immplement this component and user can create a new store and the automatically gets redirected to the store dashborad

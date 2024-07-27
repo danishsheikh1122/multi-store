@@ -1,18 +1,17 @@
 "use client";
-import { Modal } from "@/components/modal";
-import { Button } from "@/components/ui/button";
 import { useStoreModal } from "@/hooks/use-store-modal";
-import { SignInButton, UserButton } from "@clerk/nextjs";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const Home = () => {
   const onOpen = useStoreModal((state) => state.onOpen);
   const isOpen = useStoreModal((state) => state.isOpen);
 
+  // here we extract above 2 properties from store we can do this
+  // inside useEffect but it will not worl properly
   useEffect(() => {
     if (!isOpen) onOpen();
   }, [isOpen, onOpen]);
-  return <div>Admin page</div>;
+  return null;
 };
 
 export default Home;
