@@ -14,9 +14,20 @@ datasource db {
 }
 
 model Store {
-  id        String   @id @unique @default(uuid())
-  name      String
-  userId    String
+  id         String       @id @unique @default(uuid())
+  name       String
+  userId     String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  billboards Billboards[]
+}
+
+model Billboards {
+  id        String   @id @default(uuid())
+  storeId   String
+  store     Store    @relation(fields: [storeId], references: [id])
+  label     String
+  imageUrl  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

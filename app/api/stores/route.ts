@@ -2,7 +2,7 @@ import prisma from "@/prisma/client";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-export  async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
     const { userId } = auth();
     if (!userId)
@@ -16,7 +16,7 @@ export  async function POST(req: NextRequest) {
         { message: "Name is required" },
         { status: 400 }
       );
- 
+
     const created = await prisma.store.create({
       data: {
         name,
