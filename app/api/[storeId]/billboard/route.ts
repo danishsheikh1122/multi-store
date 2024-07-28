@@ -87,17 +87,17 @@ export async function DELETE(
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { billboardId: string } }
+  { params }: { params: { storeId: string } }
 ) {
   try {
-    if (!params.billboardId)
-      return new NextResponse("BillboardId is required", { status: 400 });
+    if (!params.storeId)
+      return new NextResponse("storeId is required", { status: 400 });
 
-    const res = await prisma.billboards.findUnique({
-      where: { id: params.billboardId },
+    const res = await prisma.billboards.findMany({
+      where: { storeId: params.storeId },
     });
 
-    return NextResponse.json({ status: 200, res });
+    return NextResponse.json(res);
   } catch (e) {
     console.error("[BILLBOARDS_GET]", e);
     return NextResponse.json({ error: e }, { status: 500 });

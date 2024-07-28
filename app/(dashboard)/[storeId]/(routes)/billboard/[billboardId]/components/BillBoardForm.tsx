@@ -68,8 +68,8 @@ const BillBoardForm: React.FC<Props> = ({ initialData }) => {
       } else {
         await axios.post(`/api/${param.storeId}/billboard`, data);
       }
+      router.push(`/${param.storeId}/billboard`);
       router.refresh();
-      router.push(`/${param.storeld}/billboards`);
       toast.success(toastMessage);
     } catch (e) {
       toast.error("something went wrong");
@@ -84,7 +84,7 @@ const BillBoardForm: React.FC<Props> = ({ initialData }) => {
       await axios.delete(
         `/api/${param.storeId}/billboard/${param.billboardId}`
       );
-      router.push("/");
+      router.push(`/${param.storeId}/billboard`);
       router.refresh();
       toast.success("Billboard deleted successfully");
     } catch (e) {

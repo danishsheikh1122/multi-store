@@ -50,16 +50,15 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { storeId: string; type: string } }
+  { params }: { params: { billboardId: string } }
 ) {
   //storeId comes magically from dashboard>[storeId] coz same folder name rakhenge tho uske params ko access akrsakte hai aapna
   try {
     const { userId } = auth();
-
     if (!userId)
       return NextResponse.json({ status: 401, messsage: "not authenticated" });
-    const res = await prisma.store.delete({
-      where: { id: params.storeId },
+    const res = await prisma.billboards.delete({
+      where: { id: params.billboardId },
     });
 
     if (!res)
@@ -69,7 +68,7 @@ export async function DELETE(
   } catch (e) {
     return NextResponse.json({
       error: e,
-      message: "[path req error from deleting store setting ]",
+      message: "[BILLBOARD_DELETE_FROM_BILLBOARDMAINPAGE]",
     });
   }
 }
