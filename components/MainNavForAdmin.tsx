@@ -26,6 +26,11 @@ const MainNavForAdmin = ({
       label: "Billboard",
       active: pathName === `/${params.storeId}/billboard`,
     },
+    {
+      href: `/${params.storeId}/categories`,
+      label: "Categories",
+      active: pathName === `/${params.storeId}/categories`,
+    },
   ];
   return (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6 ", className)}>

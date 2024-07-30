@@ -17,3 +17,10 @@
 ## created store changer component
 
 - we've used shadcn comboboox to immplement this component and user can create a new store and the automatically gets redirected to the store dashborad
+
+
+## billboard component created
+- all routes of billboard component and ui also created
+
+## categories component created
+- all routes of categories component and ui also created
