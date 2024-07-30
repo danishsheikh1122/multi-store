@@ -21,6 +21,8 @@ model Store {
   updatedAt  DateTime     @updatedAt
   billboards Billboards[]
   category   Category[]
+  sizes      Sizes[]
+  color      Color[]
 }
 
 model Billboards {
@@ -43,4 +45,33 @@ model Category {
   name        String
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
+}
+
+model Sizes {
+  id        String    @id @default(uuid())
+  storeId   String
+  store     Store     @relation(fields: [storeId], references: [id])
+  name      String
+  value     SizesName
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum SizesName {
+  xs
+  sm
+  md
+  lg
+  xl
+  xxl
+}
+
+model Color {
+  id        String   @id @default(uuid())
+  storeId   String
+  store     Store    @relation(fields: [storeId], references: [id])
+  name      String
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

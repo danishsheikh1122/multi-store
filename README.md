@@ -18,9 +18,18 @@
 
 - we've used shadcn comboboox to immplement this component and user can create a new store and the automatically gets redirected to the store dashborad
 
-
 ## billboard component created
+
 - all routes of billboard component and ui also created
 
 ## categories component created
+
 - all routes of categories component and ui also created
+
+## created sizes
+
+- all routes of sizes component and ui also created
+
+## created colors
+
+- all routes of colors component and ui also created
