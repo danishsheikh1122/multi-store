@@ -33,3 +33,6 @@
 ## created colors
 
 - all routes of colors component and ui also created
+
+## wrapping up admin store
+- date 31-07-24

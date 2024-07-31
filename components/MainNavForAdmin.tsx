@@ -17,11 +17,6 @@ const MainNavForAdmin = ({
       active: pathName === `/${params.storeId}`,
     },
     {
-      href: `/${params.storeId}/settings`,
-      label: "Settings",
-      active: pathName === `/${params.storeId}/settings`,
-    },
-    {
       href: `/${params.storeId}/billboard`,
       label: "Billboard",
       active: pathName === `/${params.storeId}/billboard`,
@@ -40,6 +35,21 @@ const MainNavForAdmin = ({
       href: `/${params.storeId}/colors`,
       label: "Colors",
       active: pathName === `/${params.storeId}/colors`,
+    },
+    {
+      href: `/${params.storeId}/products`,
+      label: "Products",
+      active: pathName === `/${params.storeId}/products`,
+    },
+    {
+      href: `/${params.storeId}/orders`,
+      label: "Orders",
+      active: pathName === `/${params.storeId}/orders`,
+    },
+    {
+      href: `/${params.storeId}/settings`,
+      label: "Settings",
+      active: pathName === `/${params.storeId}/settings`,
     },
   ];
   return (

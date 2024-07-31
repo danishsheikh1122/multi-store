@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { colorColumn } from "./columns";
+import { ProductColumn } from "./columns";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +16,7 @@ import axios from "axios";
 import AlertModal from "@/components/modals/alert-modal";
 
 interface Props {
-  data: colorColumn;
+  data: ProductColumn;
 }
 
 const CellAction: React.FC<Props> = ({ data }) => {
@@ -27,22 +27,22 @@ const CellAction: React.FC<Props> = ({ data }) => {
   const router = useRouter();
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Color id copied to the clipboard.");
+    toast.success("Product id copied to the clipboard.");
   };
 
   const onEdit = (id: string) => {
-    router.push(`/${params.storeId}/colors/${id}`);
+    router.push(`/${params.storeId}/products/${id}`);
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/colors/${data.id}`);
-      router.push(`/${params.storeId}/colors`);
+      await axios.delete(`/api/${params.storeId}/products/${data.id}`);
+      router.push(`/${params.storeId}/products`);
       router.refresh();
-      toast.success("Color deleted successfully");
+      toast.success("Product deleted successfully");
     } catch (e) {
-      toast.error("Make sure you removed all colors first.");
+      toast.error("Make sure you removed all products");
     } finally {
       setLoading(false);
       setOpen(false);
