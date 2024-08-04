@@ -54,7 +54,7 @@ export async function PATCH(
         { message: "colorId is required" },
         { status: 400 }
       );
-    
+
     if (!params.productId)
       return NextResponse.json({
         status: 400,
@@ -94,7 +94,7 @@ export async function PATCH(
       },
     });
 
-    return NextResponse.json({ status: 200, product });
+    return NextResponse.json(product);
   } catch (e) {
     return NextResponse.json({
       error: e,
@@ -119,7 +119,7 @@ export async function DELETE(
     if (!res)
       return NextResponse.json({ status: 404, messsage: "store not found" });
 
-    return NextResponse.json({ status: 200, res });
+    return NextResponse.json(res);
   } catch (e) {
     return NextResponse.json({
       error: e,
@@ -143,7 +143,7 @@ export async function GET(
       include: { images: true, category: true, size: true, color: true },
     });
 
-    return NextResponse.json({ status: 200, res });
+    return NextResponse.json(res);
   } catch (e) {
     console.log("[PRODUCT_GET]", e);
     return NextResponse.json({ status: 500, message: "Internal Server Error" });

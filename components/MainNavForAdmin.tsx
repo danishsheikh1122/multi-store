@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import React from "react";
+import { ModeToggle } from "./ui/toggleButton";
 
 const MainNavForAdmin = ({
   className,
@@ -53,7 +54,7 @@ const MainNavForAdmin = ({
     },
   ];
   return (
-    <nav className={cn("flex items-center space-x-4 lg:space-x-6 ", className)}>
+    <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
       {routes.map((route) => (
         <Link
           href={route.href}

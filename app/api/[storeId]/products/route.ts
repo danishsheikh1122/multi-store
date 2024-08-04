@@ -55,7 +55,6 @@ export async function POST(
         { message: "colorId is required" },
         { status: 400 }
       );
-    
 
     if (!params.storeId)
       return NextResponse.json(
@@ -130,12 +129,12 @@ export async function GET(
   { params }: { params: { storeId: string } }
 ) {
   try {
-    const { searchParams } = new URL(req.url);//this is search params like query params most convenient way to do this 
+    const { searchParams } = new URL(req.url); //this is search params like query params most convenient way to do this
     const categoryId = searchParams.get("categoryId") || undefined;
     const colorId = searchParams.get("colorId") || undefined;
     const sizeId = searchParams.get("sizeId") || undefined;
     const isFeatured = searchParams.get("isFeatured");
-    //end 
+    //end
     if (!params.storeId)
       return new NextResponse("storeId is required", { status: 400 });
 

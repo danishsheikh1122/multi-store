@@ -91,9 +91,10 @@ export async function GET(
       });
     const res = await prisma.category.findUnique({
       where: { id: params.categoryId },
+      include: { billboard: true },
     });
 
-    return NextResponse.json({ status: 200, res });
+    return NextResponse.json(res);
   } catch (e) {
     console.log("[CATEGORY_GET]", e);
     return NextResponse.json({ status: 500, message: "Internal Server Error" });

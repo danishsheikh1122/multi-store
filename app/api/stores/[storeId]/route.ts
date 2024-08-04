@@ -34,7 +34,7 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { storeId: string; type: string } }
+  { params }: { params: { storeId: string } }
 ) {
   //storeId comes magically from dashboard>[storeId] coz same folder name rakhenge tho uske params ko access akrsakte hai aapna
   try {
@@ -42,9 +42,8 @@ export async function DELETE(
 
     if (!userId)
       return NextResponse.json({ status: 401, messsage: "not authenticated" });
-    const res = await prisma.store.delete({
-      where: { id: params.storeId },
-    });
+
+    const res = await prisma.store.delete({ where: { id: params.storeId } });
 
     if (!res)
       return NextResponse.json({ status: 404, messsage: "store not found" });

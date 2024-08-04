@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ToastProvider from "@/providers/toast-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ToastProvider></ToastProvider>
-          <ModalProvider></ModalProvider>
-          {children}
+          <ThemeProvider defaultTheme="system" enableSystem attribute={"class"}>
+            <ToastProvider></ToastProvider>
+            <ModalProvider></ModalProvider>
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

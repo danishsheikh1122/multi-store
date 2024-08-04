@@ -72,3 +72,22 @@ export async function DELETE(
     });
   }
 }
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { storeId: string } }
+) {
+  try {
+    if (!params.storeId)
+      return new NextResponse("storeId is required", { status: 400 });
+
+    const res = await prisma.billboards.findMany({
+      where: { storeId: params.storeId },
+    });
+
+    return NextResponse.json(res);
+  } catch (e) {
+    console.error("[BILLBOARDS_GET]", e);
+    return NextResponse.json({ error: e }, { status: 500 });
+  }
+}
